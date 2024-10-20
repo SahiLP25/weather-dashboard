@@ -1,0 +1,249 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url("./assets/wall.jpg");
+  background-size: cover;
+  backdrop-filter: blur(3px);
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  color: white;
+  padding: 20px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.App {
+  max-width: 1000px;
+  margin: 30px auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 20px 90px 10px rgba(0, 0, 0, 0.8);
+}
+
+.heading {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 3em;
+  margin-bottom: 30px;
+}
+
+/* Search Component */
+.search-component {
+  display: flex;
+  justify-content: center;
+}
+
+.search-component input {
+  padding: 12px 20px;
+  font-size: 1.2em;
+  color: white;
+  background-color: #00000052;
+
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 20px;
+  width: 80%;
+  max-width: 300px;
+  outline: none;
+}
+.search-component input::placeholder {
+  color: rgb(255, 255, 255);
+  font-style: italic;
+}
+
+.search-component button {
+  padding: 12px 20px;
+  font-size: 1.2em;
+
+  background-color: #00000052;
+
+  color: white;
+  border: 1px solid rgba(0, 0, 0, 0);
+  font-style: italic;
+  margin-left: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-component button:hover {
+  background-color: #001b3c;
+}
+
+
+/* Weather Display */
+.weather-display {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+
+/* Current Weather */
+.current-weather {
+  background-color: #00000052;
+  color: white;
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s, box-shadow 0.2s;
+}
+.current-weather:hover {
+  transform: scale(1.01);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 1);
+}
+
+.current-weather h2 {
+  font-size: 1.8em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.current-weather p {
+  font-size: 1.5em;
+
+  font-weight: bold;
+  margin: 6px 0;
+}
+
+/* 5-Day Forecast */
+.forecast {
+  background-color: #030a1259;
+  border-radius: 15px;
+
+  padding: 20px;
+
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+  overflow-x: auto;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.2s;
+}
+
+.forecast:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 1);
+}
+
+
+
+/* Favorite Cities */
+.favorite-cities {
+  margin-top: 40px;
+  width: 100%;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+}
+.favorite-city{
+  display: flex ;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  
+  margin: 10px 0px;
+  font-size: 1.2em;
+}
+
+.favorite-cities button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  margin: 3px 1px;
+  padding: 7px 7px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.favorite-cities button:hover {
+  background-color: #941d10;
+}
+
+/* Add to Favorites Button */
+
+.togglebtn{
+  display: block;
+  margin: 20px auto;
+  padding: 10px 15px;
+  font-size: 0.7em;
+  background-color: #10347c;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.togglebtn:hover {
+  background-color: #074e25;
+  transform: scale(1.05);
+}
+
+.favbtn{
+  display: block;
+  margin: 20px auto;
+  padding: 12px 24px;
+  font-size: 1.1em;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.favbtn:hover{
+  background-color: #074e25;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .App {
+    padding: 20px;
+  }
+
+  .forecast {
+    flex-wrap: wrap;
+  }
+
+  .forecast-item {
+    flex: 0 0 45%;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .forecast-item {
+    flex: 0 0 100%;
+  }
+
+  .current-weather {
+    text-align: center;
+  }
+
+  .search-component input,
+  .search-component button {
+    width: 100%;
+    border-radius: 25px;
+    margin-bottom: 10px;
+  }
+}
